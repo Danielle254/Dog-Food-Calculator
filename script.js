@@ -1,15 +1,19 @@
-// dog food constants
-
-const dogFoodInfo = {
-    name: "Only Natural Pet Raw Blends Digestive Formula",
-    poundsPerBag: 18,
-    dollarsPerBag: 68,
-    gallonsPerBag: 100 // TBD
-};
+const dogFoodInfo = [
+    {
+        name: "Only Natural Pet Raw Blends Digestive Formula",
+        size: "18 lbs",
+        pricePerBag: 68,
+        gallonsPerBag: 10 // TBD
+    },
+    {
+        name: "Dog Food 2",
+        size: "20 lbs",
+        pricePerBag: 75,
+        gallonsPerBag: 8
+    }
+];
 
 const cupsPerGallon = 16;
-
-// user inputs
 
 let userInputs = {
     mealsPerDay: 2,
