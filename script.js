@@ -27,6 +27,6 @@ function calculate() {
     return daysPerBag;
 };
 
-console.log(calculate());
+
 
 
