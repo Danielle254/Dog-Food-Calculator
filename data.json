@@ -1,0 +1,18 @@
+{
+    "dogFoodInfo" : [
+    {
+        "name": "Only Natural Pet Raw Blends Digestive Formula",
+        "size": "18 lbs",
+        "pricePerBag": 68,
+        "gallonsPerBag": 10 
+    },
+    {
+        "name": "Dog Food 2",
+        "size": "20 lbs",
+        "pricePerBag": 75,
+        "gallonsPerBag": 8
+    }
+    ],
+    
+    "cupsPerGallon": 16
+}

@@ -1,23 +1,8 @@
-const dogFoodInfo = [
-    {
-        name: "Only Natural Pet Raw Blends Digestive Formula",
-        size: "18 lbs",
-        pricePerBag: 68,
-        gallonsPerBag: 10 // TBD
-    },
-    {
-        name: "Dog Food 2",
-        size: "20 lbs",
-        pricePerBag: 75,
-        gallonsPerBag: 8
-    }
-];
-
-const cupsPerGallon = 16;
+import data from './data.json';
 
 
 function calculate(mealsPerDay, cupsPerMeal, index) {
-    const cupsPerBag = dogFoodInfo[index].gallonsPerBag * cupsPerGallon;
+    const cupsPerBag = data.dogFoodInfo[index].gallonsPerBag * data.cupsPerGallon;
     const cupsPerDay = mealsPerDay * cupsPerMeal;
     const daysPerBag = cupsPerBag / cupsPerDay;
     return daysPerBag;
@@ -41,11 +26,10 @@ function retrieveFormInfo() {
 
     const userCupsPerMeal = Number(document.getElementById("cups_per_meal").value);
 
-    const output = calculate(userMealsPerDay, userCupsPerMeal, index);
-
+    // update output on screen
     document.getElementById("dog_food_weight").innerHTML = dogFoodInfo[index].size;
     document.getElementById("dog_food_chosen").innerHTML = dogFoodInfo[index].name;
-    document.getElementById("days").innerHTML = output;
+    document.getElementById("days").innerHTML = calculate(userMealsPerDay, userCupsPerMeal, index);
     
     
     
