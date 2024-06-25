@@ -22,8 +22,19 @@ const data =
     "ouncesPerPound" : 16
 };
 
-document.getElementById("dog_food_1_label").innerHTML = dogFoodInfo[0].name + " - " + dogFoodInfo[0].sizeInPounds + "lb";
-document.getElementById("dog_food_2_label").innerHTML = dogFoodInfo[1].name + " - " + dogFoodInfo[1].sizeInPounds + "lb";
+function populate() {
+    let dropdown = document.getElementById("dog_food_list");
+
+    for (let i = 0;  i < data.dogFoodInfo.length; i++)
+        {
+            let item = document.createElement('option');
+            item.textContent = data.dogFoodInfo[i].name + " - " + data.dogFoodInfo[i].sizeInPounds + "lb"; 
+            item.value = data.dogFoodInfo[i].name;
+            dropdown.appendChild(item);        
+        }
+    ;
+};
+
 
 function calculate(mealsPerDay, cupsPerMeal, index) {
     const cupsPerBag = dogFoodInfo[index].gallonsPerBag * cupsPerGallon;

@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="./style.css">
     
 </head>
-<body>
+<body onload="populate()">
     <main>
         <div class="input">
             <form id="user_input_form">
                 <h4>Choose dog food</h4>
-                <input type="radio" id="dog_food_1" name="food_type" value="dog_food_1">
-                <label for="dog_food_1" id="dog_food_1_label"></label><br>
-                <input type="radio" id="dog_food_2" name="food_type" value="dog_food_2"><label for="dog_food_2" id="dog_food_2_label"></label>
+                <select name="dog_food_list" id="dog_food_list">
+                    <option value="select">Select</option>
+                </select>
                 <br>
                 <h4>Meals Per Day</h4>
                 <input type="number" min="1" max="3" step="1" required id="meals_per_day" placeholder="1, 2, or 3" ><br>
