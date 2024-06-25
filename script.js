@@ -1,22 +1,29 @@
-const dogFoodInfo = [
-    {
-        name: "Only Natural Pet Raw Blends Digestive Formula",
-        size: "18 lb",
-        pricePerBag: 68,
-        gallonsPerBag: 10 
-    },
-    {
-        name: "Dog Food 2",
-        size: "20 lb",
-        pricePerBag: 75,
-        gallonsPerBag: 8
-    }
-];
+const data = 
+{
+    "dogFoodInfo" : [
+        {
+            "name": "Dog Food 1",
+            "sizeInPounds": 18,
+            "pricePerBag": 68        
+        },
+        {
+            "name": "Dog Food 2",
+            "sizeInPounds": 20,
+            "pricePerBag": 75        
+        },
+        {
+            "name": "Dog Food 3",
+            "sizeInPounds": 16,
+            "pricePerBag": 65
+        }
+    ],
+    "averageOuncesPerCup" : 3.5,
+    "conservativeOuncesPerCup" : 4,
+    "ouncesPerPound" : 16
+};
 
-const cupsPerGallon = 16;
-
-document.getElementById("dog_food_1_label").innerHTML = dogFoodInfo[0].name + " - " + dogFoodInfo[0].size;
-document.getElementById("dog_food_2_label").innerHTML = dogFoodInfo[1].name + " - " + dogFoodInfo[1].size;
+document.getElementById("dog_food_1_label").innerHTML = dogFoodInfo[0].name + " - " + dogFoodInfo[0].sizeInPounds + "lb";
+document.getElementById("dog_food_2_label").innerHTML = dogFoodInfo[1].name + " - " + dogFoodInfo[1].sizeInPounds + "lb";
 
 function calculate(mealsPerDay, cupsPerMeal, index) {
     const cupsPerBag = dogFoodInfo[index].gallonsPerBag * cupsPerGallon;
@@ -46,8 +53,7 @@ function retrieveFormInfo() {
     // run calculation and update output on screen
     document.getElementById('dog_food_weight').innerHTML = dogFoodInfo[index].size;
     document.getElementById('dog_food_chosen').innerHTML = dogFoodInfo[index].name;
-    document.getElementById('days').innerHTML = calculate(userMealsPerDay, userCupsPerMeal, index);    
-    
+    document.getElementById('days').innerHTML = calculate(userMealsPerDay, userCupsPerMeal, index);        
     
 };
 
