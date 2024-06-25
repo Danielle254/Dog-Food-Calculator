@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dog Food Calculator</title>
     <link rel="stylesheet" href="./style.css">
-    
+    <script type="application/javascript" src="./script.js"></script>
 </head>
 <body onload="populate()">
     <main>
@@ -22,9 +22,9 @@
                 <input type="number" min="0" step="0.01" required id="cups_per_meal" placeholder="ex: 1.5" >
                 <br>
                 <h4>Choose your Calculation</h4>
-                <input type="radio" name="tolerance" id="average">
+                <input type="radio" name="tolerance" id="average" value="average">
                 <label for="average">Average</label>
-                <input type="radio" name="tolerance" id="conservative">
+                <input type="radio" name="tolerance" id="conservative" value="conservative">
                 <label for="conservative">Conservative</label>
                 <br><br>
                 <button type="button" onclick="retrieveFormInfo()">Submit</button>
@@ -37,5 +37,4 @@
         </div>
     </main>
 </body>
-<script type="application/javascript" src="./script.js"></script>
 </html>

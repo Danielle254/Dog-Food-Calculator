@@ -1,0 +1,22 @@
+{
+    "dogFoodInfo" : [
+        {
+            "name": "Dog Food 1",
+            "sizeInPounds": 18,
+            "pricePerBag": 68        
+        },
+        {
+            "name": "Dog Food 2",
+            "sizeInPounds": 20,
+            "pricePerBag": 75        
+        },
+        {
+            "name": "Dog Food 3",
+            "sizeInPounds": 16,
+            "pricePerBag": 65
+        }
+    ],
+    "averageOuncesPerCup" : 3.5,
+    "conservativeOuncesPerCup" : 4,
+    "ouncesPerPound" : 16
+}

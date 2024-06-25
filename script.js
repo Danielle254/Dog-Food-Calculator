@@ -1,4 +1,12 @@
-const data = 
+let data;
+async function fetchData() {
+    const response = await fetch('./data.json');
+    data = await response.json();       
+};
+
+fetchData();
+
+/* const data = 
 {
     "dogFoodInfo" : [
         {
@@ -20,9 +28,9 @@ const data =
     "averageOuncesPerCup" : 3.5,
     "conservativeOuncesPerCup" : 4,
     "ouncesPerPound" : 16
-};
+}; */
 
-function populate() {
+function populate() {     
     let dropdown = document.getElementById("dog_food_list");
 
     for (let i = 0;  i < data.dogFoodInfo.length; i++)
@@ -53,19 +61,18 @@ function calculate(mealsPerDay, cupsPerMeal, tolerance, index) {
 function retrieveFormInfo() {          
 
     let dogFoodChosen = document.querySelector('#dog_food_list').value;
-    let index = Number(dogFoodChosen.slice(9));
+    let index = Number(dogFoodChosen.slice(9)) - 1;
 
     // generate variables for calculation based on user input      
     const userMealsPerDay = Number(document.getElementById('meals_per_day').value);
     const userCupsPerMeal = Number(document.getElementById('cups_per_meal').value);
-    const toleranceValue = document.querySelector('input[name="tolerance"]:checked');
+    const toleranceValue = document.querySelector('input[name="tolerance"]:checked').value;
 
     // run calculation and update output on screen
     document.getElementById('dog_food_weight').innerHTML = data.dogFoodInfo[index].sizeInPounds;
-    document.getElementById('dog_food_chosen').innerHTML = data.dogFoodInfo[index].name;
-    document.getElementById('days').innerHTML = calculate(userMealsPerDay, userCupsPerMeal, toleranceValue, index);    
-    
-    console.log("test");
+    document.getElementById('dog_food_chosen').innerHTML = data.dogFoodInfo[index].name;    
+    document.getElementById('days').innerHTML = calculate(userMealsPerDay, userCupsPerMeal, toleranceValue, index);  
+  
     
 };
 
