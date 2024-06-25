@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dog Food Calculator</title>
     <link rel="stylesheet" href="./style.css">
-    <script type="text/javascript" src="./script.js"></script>
+    <script type="application/javascript" src="./script.js"></script>
 </head>
 <body>
     <main>
@@ -16,14 +16,10 @@
                 <label for="dog_food_1" id="dog_food_1_label"><script>document.getElementById("dog_food_1_label").textContent = dogFoodInfo[0].name + " - " + dogFoodInfo[0].size;</script></label><br>
                 <input type="radio" id="dog_food_2" name="food_type" value="dog_food_2"><label for="dog_food_2" id="dog_food_2_label"><script>document.getElementById("dog_food_2_label").textContent = dogFoodInfo[1].name + " - " + dogFoodInfo[1].size;</script></label><br>
                 <h4>Meals Per Day</h4>
-                <input type="radio" id="1_meal_per_day" name="meals_per_day" value="1">
-                <label for="1_meal_per_day">1</label><br>
-                <input type="radio" id="2_meal_per_day" name="meals_per_day" value="2">
-                <label for="2_meal_per_day">2</label><br>
-                <input type="radio" id="3_meal_per_day" name="meals_per_day" value="3">
-                <label for="3_meal_per_day">3</label><br>
+                <input type="number" min="1" max="3" step="1" required id="meals_per_day" placeholder="1, 2, or 3" ><br>
                 <h4>Cups per Meal</h4>
-                <input type="number" min="0" step="0.01" required id="cups_per_meal" placeholder="ex: 1.5" ><br><br>
+                <input type="number" min="0" step="0.01" required id="cups_per_meal" placeholder="ex: 1.5" >
+                <br><br>
                 <button type="button" onclick="retrieveFormInfo()">Submit</button>
             </form>
         </div>
