@@ -15,6 +15,8 @@ const dogFoodInfo = [
 
 const cupsPerGallon = 16;
 
+document.getElementById("dog_food_1_label").innerHTML = dogFoodInfo[0].name + " - " + dogFoodInfo[0].size;
+document.getElementById("dog_food_2_label").innerHTML = dogFoodInfo[1].name + " - " + dogFoodInfo[1].size;
 
 function calculate(mealsPerDay, cupsPerMeal, index) {
     const cupsPerBag = dogFoodInfo[index].gallonsPerBag * cupsPerGallon;
@@ -37,11 +39,11 @@ function retrieveFormInfo() {
             break;
     }
 
+    // generate variables for calculation based on user input
     const userMealsPerDay = Number(document.getElementById('meals_per_day').value);
-
     const userCupsPerMeal = Number(document.getElementById('cups_per_meal').value);
 
-    // update output on screen
+    // run calculation and update output on screen
     document.getElementById('dog_food_weight').innerHTML = dogFoodInfo[index].size;
     document.getElementById('dog_food_chosen').innerHTML = dogFoodInfo[index].name;
     document.getElementById('days').innerHTML = calculate(userMealsPerDay, userCupsPerMeal, index);    
