@@ -90,7 +90,7 @@ function generate() {
 
 function resetForm() {
     document.getElementById("user_input_form").reset();
-
+    document.getElementById("output_text").innerHTML = "";
 }
 
 
