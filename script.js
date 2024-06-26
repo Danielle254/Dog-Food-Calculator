@@ -6,31 +6,9 @@ async function fetchData() {
 
 fetchData();
 
-/* const data = 
-{
-    "dogFoodInfo" : [
-        {
-            "name": "Dog Food 1",
-            "sizeInPounds": 18,
-            "pricePerBag": 68        
-        },
-        {
-            "name": "Dog Food 2",
-            "sizeInPounds": 20,
-            "pricePerBag": 75        
-        },
-        {
-            "name": "Dog Food 3",
-            "sizeInPounds": 16,
-            "pricePerBag": 65
-        }
-    ],
-    "averageOuncesPerCup" : 3.5,
-    "conservativeOuncesPerCup" : 4,
-    "ouncesPerPound" : 16
-}; */
 
 function populate() {     
+
     let dropdown = document.getElementById("dog_food_list");
 
     for (let i = 0;  i < data.dogFoodInfo.length; i++)
@@ -39,21 +17,20 @@ function populate() {
             item.textContent = data.dogFoodInfo[i].name + " - " + data.dogFoodInfo[i].sizeInPounds + "lb"; 
             item.value = `dog_food_${i + 1}`;
             dropdown.appendChild(item);        
-        }
-    ;
+        };
 };
 
 function validate(food, meals, cups) {
     const tol = document.querySelector('input[name="tolerance"]:checked')?.value;
     if (food === "select" || !meals || !cups || !tol) {
         return false;
-    } else if (meals !== "1" || meals !== "2" || meals !== "3") { 
+    } /* else if (meals !== "1" || meals !== "2" || meals !== "3") { 
         return false;
     } else if (Number(cups) < 0 ) {
         return false; 
     } else if (cups.includes('.') && cups.split('.')[1].length > 2) {
         return false;
-    } else {
+    } */ else {
         return true;
     };
 };
@@ -85,18 +62,20 @@ function generate() {
         // run calculation and update output on screen
         const toleranceValue = document.querySelector('input[name="tolerance"]:checked').value;
         const index = Number(dogFoodChosen.slice(9)) - 1;
+        document.getElementById("output_text").style.visibility = "visible";
         document.getElementById('dog_food_weight').innerHTML = data.dogFoodInfo[index].sizeInPounds;
         document.getElementById('dog_food_chosen').innerHTML = data.dogFoodInfo[index].name;    
         document.getElementById('days').innerHTML = calculate(Number(userMealsPerDay), Number(userCupsPerMeal), toleranceValue, index); 
     } else {
         alert("All fields are required. Meals per Day can only be 1, 2, or 3. Cups per Meal must be a positive number with no more than 2 decimal places.");
+        location.reload();
     };   
     
 };
 
 function resetForm() {
     document.getElementById("user_input_form").reset();
-    document.getElementById("output_text").innerHTML = "";
+    document.getElementById("output_text").style.visibility = "hidden";
 }
 
 

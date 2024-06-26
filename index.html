@@ -30,12 +30,11 @@
                 <label for="conservative">Conservative</label>
                 <br><br>
                 <button type="button" onclick="generate()">Submit</button>
+                <button type="button" onclick="resetForm()">Reset</button>
             </form>
         </div>
         <div class="output">
-            <p id="output_text">One <span id="dog_food_weight"></span> bag of <span id="dog_food_chosen"></span> will last your household <span id="days"></span> days.</p>
-            <br>
-            <button type="button" onclick="resetForm()">Reset</button>
+            <p id="output_text" style="visibility: hidden;">One <span id="dog_food_weight"></span> bag of <span id="dog_food_chosen"></span> will last your household <span id="days"></span> days.</p>            
         </div>
     </main>
 </body>
