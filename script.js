@@ -47,6 +47,12 @@ function validate(food, meals, cups) {
     const tol = document.querySelector('input[name="tolerance"]:checked')?.value;
     if (food === "select" || !meals || !cups || !tol) {
         return false;
+    } else if (meals !== "1" || meals !== "2" || meals !== "3") { 
+        return false;
+    } else if (Number(cups) < 0 ) {
+        return false; 
+    } else if (cups.includes('.') && cups.split('.')[1].length > 2) {
+        return false;
     } else {
         return true;
     };
@@ -83,7 +89,7 @@ function generate() {
         document.getElementById('dog_food_chosen').innerHTML = data.dogFoodInfo[index].name;    
         document.getElementById('days').innerHTML = calculate(Number(userMealsPerDay), Number(userCupsPerMeal), toleranceValue, index); 
     } else {
-        alert("All fields are required");
+        alert("All fields are required. Meals per Day can only be 1, 2, or 3. Cups per Meal must be a positive number with no more than 2 decimal places.");
     };   
     
 };
