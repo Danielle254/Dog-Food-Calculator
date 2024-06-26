@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dog Food Calculator</title>
     <link rel="stylesheet" href="./style.css">
-    <script type="application/javascript" src="./script.js"></script>
 </head>
 <body onload="populate()">
     <main>
         <h1>Dog Food Calculator</h1>
-        <p>Note: all fields required</p>
+        <p>Note: all fields are required</p>
         <div class="input">
             <form id="user_input_form" onsubmit="generate();return false;">
                 <h4>Choose dog food</h4>
@@ -35,13 +34,15 @@
                 <input type="radio" name="tolerance" id="conservative" value="conservative" required>
                 <label for="conservative">Conservative</label>
                 <br><br>
-                <input type="submit" value="Submit">
-                <button type="button" onclick="resetForm()">Reset</button>
+                <input type="submit" value="Submit" >
+                <button type="button" onclick="resetForm()" id="reset_button">Reset</button>
             </form>
         </div>
-        <div class="output">
-            <p id="output_text" style="visibility: hidden;">One <span id="dog_food_weight"></span> bag of <span id="dog_food_chosen"></span> will last your household <span id="days"></span> days.</p>            
+        <div class="output" id="output_text" style="visibility: hidden;">
+            <p>One <span id="dog_food_weight"></span> bag of <span id="dog_food_chosen"></span> will last your household <span id="days"></span> days.</p>
+            <p>This food costs $<span id="price_per_pound"></span> per pound and $<span id="price_per_month"></span> per month, on average.</p>         
         </div>
     </main>
 </body>
+<script type="application/javascript" src="./script.js"></script>
 </html>

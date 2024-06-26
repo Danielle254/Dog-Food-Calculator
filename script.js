@@ -23,17 +23,24 @@ function populate() {
 
 
 function calculate(mealsPerDay, cupsPerMeal, tolerance, index) {
+    // calculate daysPerBag
     let ouncesPerCup = 0;
     if (tolerance === "average") {
         ouncesPerCup = data.averageOuncesPerCup;
     } else if (tolerance === "conservative") {
         ouncesPerCup = data.conservativeOuncesPerCup;
     };
-
-    const cupsPerBag = data.dogFoodInfo[index].sizeInPounds * data.ouncesPerPound / ouncesPerCup;
+    const bagSize = data.dogFoodInfo[index].sizeInPounds;
+    const cupsPerBag = bagSize * data.ouncesPerPound / ouncesPerCup;
     const cupsPerDay = mealsPerDay * cupsPerMeal;
     const daysPerBag = cupsPerBag / cupsPerDay;
-    return daysPerBag.toFixed(0);
+    
+    // calculate pricePerPound and pricePerMonth
+    const bagPrice = data.dogFoodInfo[index].pricePerBag;
+    const pricePerPound = bagPrice / bagSize;
+    const pricePerMonth = bagPrice / daysPerBag * 30.4;
+
+    return [daysPerBag.toFixed(0), pricePerPound.toFixed(2), pricePerMonth.toFixed(2)];
 };
 
 function generate() {     
@@ -49,17 +56,22 @@ function generate() {
         
         // run calculation and update output on screen
         const toleranceValue = document.querySelector('input[name="tolerance"]:checked').value;    
-        document.getElementById("output_text").style.visibility = "visible";
+        document.getElementById('output_text').style.visibility = "visible";
         document.getElementById('dog_food_weight').innerHTML = data.dogFoodInfo[index].sizeInPounds;
         document.getElementById('dog_food_chosen').innerHTML = data.dogFoodInfo[index].name;    
-        document.getElementById('days').innerHTML = calculate(userMealsPerDay, userCupsPerMeal, toleranceValue, index);     
+        const [days, perPound, perMonth] = calculate(userMealsPerDay, userCupsPerMeal, toleranceValue, index);
+        document.getElementById('days').innerHTML = days;
+        document.getElementById('price_per_pound').innerHTML = perPound;
+        document.getElementById('price_per_month').innerHTML = perMonth;      
+        
     }
 };
 
 function resetForm() {
-    document.getElementById("user_input_form").reset();
-    document.getElementById("output_text").style.visibility = "hidden";
-}
+    document.getElementById('user_input_form').reset();
+    document.getElementById('output_text').style.visibility = "hidden";
+};
+
 
 
 
