@@ -9,10 +9,12 @@
 </head>
 <body onload="populate()">
     <main>
+        <h1>Dog Food Calculator</h1>
+        <p>Note: all fields required</p>
         <div class="input">
             <form id="user_input_form">
                 <h4>Choose dog food</h4>
-                <select name="dog_food_list" id="dog_food_list">
+                <select name="dog_food_list" id="dog_food_list" required>
                     <option value="select">Select</option>
                 </select>
                 <br>
@@ -22,9 +24,9 @@
                 <input type="number" min="0" step="0.01" required id="cups_per_meal" placeholder="ex: 1.5" >
                 <br>
                 <h4>Choose your Calculation</h4>
-                <input type="radio" name="tolerance" id="average" value="average">
+                <input type="radio" name="tolerance" id="average" value="average" required>
                 <label for="average">Average</label>
-                <input type="radio" name="tolerance" id="conservative" value="conservative">
+                <input type="radio" name="tolerance" id="conservative" value="conservative" required>
                 <label for="conservative">Conservative</label>
                 <br><br>
                 <button type="button" onclick="retrieveFormInfo()">Submit</button>
@@ -33,7 +35,7 @@
         <div class="output">
             <p>One <span id="dog_food_weight"></span> bag of <span id="dog_food_chosen"></span> will last your household <span id="days"></span> days.</p>
             <br>
-            <button>Reset</button>
+            <button type="button" onclick="resetForm()">Reset</button>
         </div>
     </main>
 </body>

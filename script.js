@@ -55,7 +55,7 @@ function calculate(mealsPerDay, cupsPerMeal, tolerance, index) {
     const cupsPerBag = data.dogFoodInfo[index].sizeInPounds * data.ouncesPerPound / ouncesPerCup;
     const cupsPerDay = mealsPerDay * cupsPerMeal;
     const daysPerBag = cupsPerBag / cupsPerDay;
-    return daysPerBag;
+    return daysPerBag.toFixed(0);
 };
 
 function retrieveFormInfo() {          
@@ -75,6 +75,11 @@ function retrieveFormInfo() {
   
     
 };
+
+function resetForm() {
+    document.getElementById("user_input_form").reset();
+
+}
 
 
 
