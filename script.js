@@ -63,7 +63,7 @@ function generate() {
         document.getElementById('days').innerHTML = days;
         document.getElementById('price_per_pound').innerHTML = perPound;
         document.getElementById('price_per_month').innerHTML = perMonth;      
-        
+        document.getElementById('buy_now').setAttribute('href', data.dogFoodInfo[index].linkToBuy);
     }
 };
 
