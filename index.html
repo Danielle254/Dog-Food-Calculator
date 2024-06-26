@@ -12,7 +12,7 @@
         <h1>Dog Food Calculator</h1>
         <p>Note: all fields required</p>
         <div class="input">
-            <form id="user_input_form">
+            <form id="user_input_form" onsubmit="generate();return false;">
                 <h4>Choose dog food</h4>
                 <select name="dog_food_list" id="dog_food_list" required>
                     <option value="select">Select</option>
@@ -29,7 +29,7 @@
                 <input type="radio" name="tolerance" id="conservative" value="conservative" required>
                 <label for="conservative">Conservative</label>
                 <br><br>
-                <button type="button" onclick="generate()">Submit</button>
+                <input type="submit" value="Submit">
                 <button type="button" onclick="resetForm()">Reset</button>
             </form>
         </div>

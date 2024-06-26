@@ -20,20 +20,7 @@ function populate() {
         };
 };
 
-function validate(food, meals, cups) {
-    const tol = document.querySelector('input[name="tolerance"]:checked')?.value;
-    if (food === "select" || !meals || !cups || !tol) {
-        return false;
-    } /* else if (meals !== "1" || meals !== "2" || meals !== "3") { 
-        return false;
-    } else if (Number(cups) < 0 ) {
-        return false; 
-    } else if (cups.includes('.') && cups.split('.')[1].length > 2) {
-        return false;
-    } */ else {
-        return true;
-    };
-};
+
 
 function calculate(mealsPerDay, cupsPerMeal, tolerance, index) {
     let ouncesPerCup = 0;
@@ -50,26 +37,19 @@ function calculate(mealsPerDay, cupsPerMeal, tolerance, index) {
 };
 
 function generate() {     
-
-    // generate variables for calculation based on user input 
-    const dogFoodChosen = document.querySelector('#dog_food_list').value;     
-    const userMealsPerDay = document.getElementById('meals_per_day').value;
-    const userCupsPerMeal = document.getElementById('cups_per_meal').value;
     
-
-    // check validation on user inputs
-    if (validate(dogFoodChosen, userMealsPerDay, userCupsPerMeal)) {
-        // run calculation and update output on screen
-        const toleranceValue = document.querySelector('input[name="tolerance"]:checked').value;
-        const index = Number(dogFoodChosen.slice(9)) - 1;
-        document.getElementById("output_text").style.visibility = "visible";
-        document.getElementById('dog_food_weight').innerHTML = data.dogFoodInfo[index].sizeInPounds;
-        document.getElementById('dog_food_chosen').innerHTML = data.dogFoodInfo[index].name;    
-        document.getElementById('days').innerHTML = calculate(Number(userMealsPerDay), Number(userCupsPerMeal), toleranceValue, index); 
-    } else {
-        alert("All fields are required. Meals per Day can only be 1, 2, or 3. Cups per Meal must be a positive number with no more than 2 decimal places.");
-        location.reload();
-    };   
+    // generate variables for calculation based on user input 
+    const dogFoodChosen = document.querySelector('#dog_food_list').value; 
+    const index = Number(dogFoodChosen.slice(9)) - 1;    
+    const userMealsPerDay = Number(document.getElementById('meals_per_day').value);
+    const userCupsPerMeal = Number(document.getElementById('cups_per_meal').value);
+    
+    // run calculation and update output on screen
+    const toleranceValue = document.querySelector('input[name="tolerance"]:checked').value;    
+    document.getElementById("output_text").style.visibility = "visible";
+    document.getElementById('dog_food_weight').innerHTML = data.dogFoodInfo[index].sizeInPounds;
+    document.getElementById('dog_food_chosen').innerHTML = data.dogFoodInfo[index].name;    
+    document.getElementById('days').innerHTML = calculate(userMealsPerDay, userCupsPerMeal, toleranceValue, index);     
     
 };
 
