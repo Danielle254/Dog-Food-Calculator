@@ -19,7 +19,13 @@
                 </select>
                 <br>
                 <h4>Meals Per Day</h4>
-                <input type="number" min="1" max="3" step="1" required id="meals_per_day" placeholder="1, 2, or 3" ><br>
+                <input type="radio" name="meals_per_day" id="1_meal_per_day" value="1" required>
+                <label for="1_meal_per_day">1</label>
+                <input type="radio" name="meals_per_day" id="2_meals_per_day" value="1" required>
+                <label for="2_meals_per_day">2</label>
+                <input type="radio" name="meals_per_day" id="3_meals_per_day" value="1" required>
+                <label for="3_meals_per_day">3</label>
+                <br>
                 <h4>Cups per Meal</h4>
                 <input type="number" min="0" step="0.01" required id="cups_per_meal" placeholder="ex: 1.5" >
                 <br>

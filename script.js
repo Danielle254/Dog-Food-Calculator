@@ -44,7 +44,7 @@ function generate() {
         alert("Please select a dog food from the list");
     } else {    
         const index = Number(dogFoodChosen.slice(9)) - 1;    
-        const userMealsPerDay = Number(document.getElementById('meals_per_day').value);
+        const userMealsPerDay = Number(document.querySelector('input[name="meals_per_day"]:checked').value);
         const userCupsPerMeal = Number(document.getElementById('cups_per_meal').value);
         
         // run calculation and update output on screen
