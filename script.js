@@ -45,21 +45,24 @@ function calculate(mealsPerDay, cupsPerMeal, tolerance, index) {
 
 function generate() {     
     
-    // generate variables for calculation based on user input 
+    // check dropdown form field validation. all other form fields validated with built in HTML
     const dogFoodChosen = document.querySelector('#dog_food_list').value; 
     if (dogFoodChosen === "select") {
         alert("Please select a dog food from the list");
     } else {    
-        const index = Number(dogFoodChosen.slice(9)) - 1;    
+        // generate variables for calculation based on user input            
         const userMealsPerDay = Number(document.querySelector('input[name="meals_per_day"]:checked').value);
         const userCupsPerMeal = Number(document.getElementById('cups_per_meal').value);
+        const toleranceValue = document.querySelector('input[name="tolerance"]:checked').value; 
+        const index = Number(dogFoodChosen.slice(9)) - 1; 
         
-        // run calculation and update output on screen
-        const toleranceValue = document.querySelector('input[name="tolerance"]:checked').value;    
+        // run calculation and display output on screen           
         document.getElementById('output_text').style.visibility = "visible";
-        document.getElementById('dog_food_weight').innerHTML = data.dogFoodInfo[index].sizeInPounds;
-        document.getElementById('dog_food_chosen').innerHTML = data.dogFoodInfo[index].name;    
+        
         const [days, perPound, perMonth] = calculate(userMealsPerDay, userCupsPerMeal, toleranceValue, index);
+        
+        document.getElementById('dog_food_weight').innerHTML = data.dogFoodInfo[index].sizeInPounds;
+        document.getElementById('dog_food_chosen').innerHTML = data.dogFoodInfo[index].name;            
         document.getElementById('days').innerHTML = days;
         document.getElementById('price_per_pound').innerHTML = perPound;
         document.getElementById('price_per_month').innerHTML = perMonth;      
