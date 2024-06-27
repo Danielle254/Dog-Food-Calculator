@@ -1,4 +1,5 @@
 # Multi-Feature Dog Food Calculator
+## (still in development)
 
 This app calculates how long a given bag of dog food will last, factoring in a multiple dog household, and provides the user with pricing information and a link to purchase the food online. There is also the ability to compare 2 different foods.
 
