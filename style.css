@@ -8,5 +8,9 @@ input::-webkit-inner-spin-button {
 
 body {
   background-image: url(./Background_Image_Ideas/kibble_3.jpg);
+  background-color: #f2f7f5;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
