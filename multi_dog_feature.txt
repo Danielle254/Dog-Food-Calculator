@@ -1,0 +1,25 @@
+Notes for Collaboration on this Feature
+
+
+Description:
+Adding this feature will allow the user to input feeding information for more than one dog.
+
+
+To Do:
+New input field (radio button or dropdown?) for Number of Dogs in Your Household (options: 1, 2, 3, 4)
+
+Create new input fields x3 for meals per day and cups per meal. Should be a simple copy/paste and update IDs 
+
+Hide all Meals per Day and Cups per Meal inputs until number of dogs input is selected
+
+Introduce logic with JS function to determine which meals/cups inputs to display based on user input of dogs per household 
+
+Update output message to include additional sentence about how many bags of food they will need per month
+
+Be sure to send total values to the calculate function 
+
+
+Notes for Danielle:
+
+
+Notes for Anindita:
