@@ -7,42 +7,44 @@
     <link rel="stylesheet" href="./style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
-<body onload="populate()">
-    <main>
-        <h1>Dog Food Calculator</h1>
-        <p>Note: all fields are required</p>
-        <div class="input">
-            <form id="user_input_form" onsubmit="generate();return false;">
-                <h4>Choose dog food</h4>
-                <select name="dog_food_list" id="dog_food_list" required>
-                    <option value="select">Select</option>
-                </select>
-                <br>
-                <h4>Meals Per Day</h4>
-                <input type="radio" name="meals_per_day" id="1_meal_per_day" value="1" required>
-                <label for="1_meal_per_day">1</label>
-                <input type="radio" name="meals_per_day" id="2_meals_per_day" value="1" required>
-                <label for="2_meals_per_day">2</label>
-                <input type="radio" name="meals_per_day" id="3_meals_per_day" value="1" required>
-                <label for="3_meals_per_day">3</label>
-                <br>
-                <h4>Cups per Meal</h4>
-                <input type="number" min="0" step="0.01" required id="cups_per_meal" placeholder="ex: 1.5" >
-                <br>
-                <h4>Choose your Calculation</h4>
-                <input type="radio" name="tolerance" id="average" value="average" required>
-                <label for="average">Average</label>
-                <input type="radio" name="tolerance" id="conservative" value="conservative" required>
-                <label for="conservative">Conservative</label>
-                <br><br>
-                <input type="submit" value="Submit" >
-                <button type="button" onclick="resetForm()" id="reset_button">Reset</button>
-            </form>
-        </div>
-        <div class="output" id="output_text" style="visibility: hidden;">
-            <p>One <span id="dog_food_weight"></span> pound bag of <span id="dog_food_chosen"></span> will last your household <span id="days"></span> days.</p>
-            <p>This food costs $<span id="price_per_pound"></span> per pound and $<span id="price_per_month"></span> per month, on average.</p>   
-            <a id="buy_now"><button >Buy Now</button></a>    
+<body onload="populate()" class="container">
+    <main class="row justify-content-center">
+        <div class="col-xs-12 col-lg-6">
+            <h1>Dog Food Calculator</h1>
+            <p>Note: all fields are required</p>
+            <div class="input">
+                <form id="user_input_form" onsubmit="generate();return false;">
+                    <h4>Choose dog food</h4>
+                    <select name="dog_food_list" id="dog_food_list" required>
+                        <option value="select">Select</option>
+                    </select>
+                    <br>
+                    <h4>Meals Per Day</h4>
+                    <input type="radio" name="meals_per_day" id="1_meal_per_day" value="1" required>
+                    <label for="1_meal_per_day">1</label>
+                    <input type="radio" name="meals_per_day" id="2_meals_per_day" value="1" required>
+                    <label for="2_meals_per_day">2</label>
+                    <input type="radio" name="meals_per_day" id="3_meals_per_day" value="1" required>
+                    <label for="3_meals_per_day">3</label>
+                    <br>
+                    <h4>Cups per Meal</h4>
+                    <input type="number" min="0" step="0.01" required id="cups_per_meal" placeholder="ex: 1.5" >
+                    <br>
+                    <h4>Choose your Calculation</h4>
+                    <input type="radio" name="tolerance" id="average" value="average" required>
+                    <label for="average">Average</label>
+                    <input type="radio" name="tolerance" id="conservative" value="conservative" required>
+                    <label for="conservative">Conservative</label>
+                    <br><br>
+                    <input type="submit" value="Submit" >
+                    <button type="button" onclick="resetForm()" id="reset_button">Reset</button>
+                </form>
+            </div>
+            <div class="output" id="output_text" style="visibility: hidden;">
+                <p>One <span id="dog_food_weight"></span> pound bag of <span id="dog_food_chosen"></span> will last your household <span id="days"></span> days.</p>
+                <p>This food costs $<span id="price_per_pound"></span> per pound and $<span id="price_per_month"></span> per month, on average.</p>   
+                <a id="buy_now"><button >Buy Now</button></a>    
+            </div>
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
