@@ -36,14 +36,14 @@
                     <input type="radio" name="tolerance" id="conservative" value="conservative" required>
                     <label for="conservative">Conservative</label>
                     <br><br>
-                    <input type="submit" value="Submit" >
-                    <button type="button" onclick="resetForm()" id="reset_button">Reset</button>
+                    <input type="submit" value="Submit" class="btn btn-info">
+                    <button type="button" onclick="resetForm()" id="reset_button" class="btn btn-outline-secondary">Reset</button>
                 </form>
             </div>
-            <div class="output" id="output_text" style="visibility: hidden;">
+            <div class="output mt-4" id="output_text" style="visibility: hidden;">
                 <p>One <span id="dog_food_weight"></span> pound bag of <span id="dog_food_chosen"></span> will last your household <span id="days"></span> days.</p>
                 <p>This food costs $<span id="price_per_pound"></span> per pound and $<span id="price_per_month"></span> per month, on average.</p>   
-                <a id="buy_now"><button >Buy Now</button></a>    
+                <a id="buy_now"><button class="btn btn-outline-success">Buy Now</button></a>    
             </div>
         </div>
     </main>
