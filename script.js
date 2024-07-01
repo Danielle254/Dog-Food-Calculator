@@ -21,6 +21,11 @@ function populate() {
 };
 
 
+function oneDog() {
+    document.getElementById('dog_1').style.display = "block";
+}
+
+
 
 function calculate(mealsPerDay, cupsPerMeal, tolerance, index) {
     // calculate daysPerBag
