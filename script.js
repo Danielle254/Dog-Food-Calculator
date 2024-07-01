@@ -25,7 +25,23 @@ function oneDog() {
     document.getElementById('dog_1').style.display = "block";
 }
 
+function twoDogs() {
+    document.getElementById('dog_1').style.display = "block";
+    document.getElementById('dog_2').style.display = "block";
+}
 
+function threeDogs() {
+    document.getElementById('dog_1').style.display = "block";
+    document.getElementById('dog_2').style.display = "block";
+    document.getElementById('dog_3').style.display = "block";
+}
+
+function fourDogs() {
+    document.getElementById('dog_1').style.display = "block";
+    document.getElementById('dog_2').style.display = "block";
+    document.getElementById('dog_3').style.display = "block";
+    document.getElementById('dog_4').style.display = "block";
+}
 
 function calculate(mealsPerDay, cupsPerMeal, tolerance, index) {
     // calculate daysPerBag
