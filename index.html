@@ -9,10 +9,12 @@
 </head>
 <body onload="populate()" class="container">
     <main class="row justify-content-center">
-        <div class="col-xs-12 col-lg-6  bg-light bg-opacity-75">
-            <h1>Dog Food Calculator</h1>
-            <p>Note: all fields are required</p>
-            <div class="input">
+        <div class="col-xs-12 col-lg-6  bg-light bg-opacity-75 d-flex  flex-column">
+            <div class="align-self-center w-100 px-1">
+                <h1>Dog Food Calculator</h1>
+                <p>Note: all fields are required</p>
+            </div>
+            <div class="input align-self-center w-100 px-1">
                 <form id="user_input_form" onsubmit="generate();return false;">
                     <h4>Choose dog food</h4>
                     <select name="dog_food_list" id="dog_food_list" required>
@@ -40,7 +42,7 @@
                     <button type="button" onclick="resetForm()" id="reset_button" class="btn btn-outline-secondary">Reset</button>
                 </form>
             </div>
-            <div class="output mt-4" id="output_text" style="visibility: hidden;">
+            <div class="output mt-4 align-self-center w-100 px-1" id="output_text" style="visibility: hidden;">
                 <p>One <span id="dog_food_weight"></span> pound bag of <span id="dog_food_chosen"></span> will last your household <span id="days"></span> days.</p>
                 <p>This food costs $<span id="price_per_pound"></span> per pound and $<span id="price_per_month"></span> per month, on average.</p>   
                 <a id="buy_now"><button class="btn btn-outline-success">Buy Now</button></a>    
