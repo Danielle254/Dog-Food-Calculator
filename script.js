@@ -26,12 +26,12 @@ function calculate(mealsPerDay, cupsPerMeal, tolerance, index) {
     // calculate daysPerBag
     let ouncesPerCup = 0;
     if (tolerance === "average") {
-        ouncesPerCup = data.averageOuncesPerCup;
+        ouncesPerCup = 3.5;
     } else if (tolerance === "conservative") {
-        ouncesPerCup = data.conservativeOuncesPerCup;
+        ouncesPerCup = 4;
     };
     const bagSize = data.dogFoodInfo[index].sizeInPounds;
-    const cupsPerBag = bagSize * data.ouncesPerPound / ouncesPerCup;
+    const cupsPerBag = bagSize * 16 / ouncesPerCup;
     const cupsPerDay = mealsPerDay * cupsPerMeal;
     const daysPerBag = cupsPerBag / cupsPerDay;
     

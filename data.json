@@ -18,8 +18,5 @@
             "pricePerBag": 85,
             "linkToBuy": "https://www.chewy.com/merrick-backcountry-raw-infused-grain/dp/253714?utm_source=google-product&utm_medium=cpc&utm_campaign=20394650868&utm_content=&gad_source=1&gclid=CjwKCAjw-O6zBhASEiwAOHeGxT1-a1Dldt-0U0tKC_YDDGg0kDYP2_ZxujQtd3KzvvJNZdIcjAdQcBoCmQcQAvD_BwE" 
         }
-    ],
-    "averageOuncesPerCup" : 3.5,
-    "conservativeOuncesPerCup" : 4,
-    "ouncesPerPound" : 16
+    ]
 }
