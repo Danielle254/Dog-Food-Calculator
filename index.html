@@ -32,17 +32,19 @@
                     <input type="radio" name="dogs_in_household" id="4_dogs_in_household" value="4" required>
                     <label for="4_dogs_in_household" class="pe-3">4</label>
                     <br>
-                    <h4 class="mt-3">Meals per Day</h4>
-                    <input type="radio" name="meals_per_day" id="1_meal_per_day" value="1" required>
-                    <label for="1_meal_per_day" class="pe-3">1</label>
-                    <input type="radio" name="meals_per_day" id="2_meals_per_day" value="1" required>
-                    <label for="2_meals_per_day" class="pe-3">2</label>
-                    <input type="radio" name="meals_per_day" id="3_meals_per_day" value="1" required>
-                    <label for="3_meals_per_day" class="pe-3">3</label>
-                    <br>
-                    <h4 class="mt-3">Cups per Meal</h4>
-                    <input type="number" class="w-75" min="0" step="0.01" required id="cups_per_meal" placeholder="enter as decimal, ex: 1/3 cup = 0.33" >
-                    <br>
+                    <div class="dog_1 d-none">
+                        <h4 class="mt-3">Meals per Day - Dog 1</h4>
+                        <input type="radio" name="meals_per_day" id="1_meal_per_day" value="1" required>
+                        <label for="1_meal_per_day" class="pe-3">1</label>
+                        <input type="radio" name="meals_per_day" id="2_meals_per_day" value="1" required>
+                        <label for="2_meals_per_day" class="pe-3">2</label>
+                        <input type="radio" name="meals_per_day" id="3_meals_per_day" value="1" required>
+                        <label for="3_meals_per_day" class="pe-3">3</label>
+                        <br>
+                        <h4 class="mt-3">Cups per Meal - Dog 1</h4>
+                        <input type="number" class="w-75" min="0" step="0.01" required id="cups_per_meal" placeholder="enter as decimal, ex: 1/3 cup = 0.33" >
+                        <br>
+                    </div>
                     <h4 class="mt-3">Calculation Tolerance</h4>
                     <input type="radio" name="tolerance" id="average" value="average" required>
                     <label for="average" class="pe-5">Average</label>
