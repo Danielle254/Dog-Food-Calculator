@@ -53,7 +53,7 @@ function displayInputs() {
 };
 
 
-function calculate(mealsPerDay, cupsPerMeal, tolerance, index) {
+function calculate(cupsPerDay, tolerance, index) {
     // calculate daysPerBag
     let ouncesPerCup = 0;
     if (tolerance === "average") {
@@ -63,7 +63,6 @@ function calculate(mealsPerDay, cupsPerMeal, tolerance, index) {
     };
     const bagSize = data.dogFoodInfo[index].sizeInPounds;
     const cupsPerBag = bagSize * 16 / ouncesPerCup;
-    const cupsPerDay = mealsPerDay * cupsPerMeal;
     const daysPerBag = cupsPerBag / cupsPerDay;
     
     // calculate pricePerPound and pricePerMonth
@@ -73,6 +72,39 @@ function calculate(mealsPerDay, cupsPerMeal, tolerance, index) {
 
     return [daysPerBag.toFixed(0), pricePerPound.toFixed(2), pricePerMonth.toFixed(2)];
 };
+
+
+function totalDogsValues() {
+    const dogsInHousehold = document.querySelector('input[name="dogs_in_household"]:checked').value;
+    let totalCupsPerDay = 0;
+
+    const meals1 = Number(document.querySelector('input[name="meals_per_day_dog1"]:checked').value);
+    const cups1 = Number(document.getElementById("cups_per_meal_dog1").value);
+    let meals2 = Number(document.querySelector('input[name="meals_per_day_dog2"]:checked').value);
+    const cups2 = Number(document.getElementById("cups_per_meal_dog2").value);
+    const meals3 = Number(document.querySelector('input[name="meals_per_day_dog3"]:checked').value);
+    const cups3 = Number(document.getElementById("cups_per_meal_dog3").value);
+    const meals4 = Number(document.querySelector('input[name="meals_per_day_dog4"]:checked').value);
+    const cups4 = Number(document.getElementById("cups_per_meal_dog4").value);
+    
+
+    switch (dogsInHousehold) {               
+        case "1":
+            totalCupsPerDay += meals1 * cups1;
+            break;        
+        case "2":            
+            totalCupsPerDay += (meals1 * cups1) + (meals2 * cups2); 
+            break;
+        case "3":
+            totalCupsPerDay += (meals1 * cups1) + (meals2 * cups2) + (meals3 * cups3); 
+            break;
+        case "4":
+            totalCupsPerDay += (meals1 * cups1) + (meals2 * cups2) + (meals3 * cups3) + (meals4 * cups4); 
+            break;
+    }
+
+    return totalCupsPerDay;
+}
 
 function generate() {     
     
