@@ -21,8 +21,7 @@ function populate() {
 };
 
 function displayInputs() {
-    let checked = document.querySelector('input[name="dogs_in_household"]:checked').value;
-    
+    let checked = document.querySelector('input[name="dogs_in_household"]:checked').value;    
              
     switch (checked) {
         case "1":
@@ -30,6 +29,14 @@ function displayInputs() {
             document.getElementById('dog_2').style.display = "none";
             document.getElementById('dog_3').style.display = "none";
             document.getElementById('dog_4').style.display = "none";
+            document.getElementById('2_meals_per_day_dog2').required = false;
+            document.getElementById('cups_per_meal_dog2').required = false;
+            break;
+            document.getElementById('2_meals_per_day_dog3').required = false;
+            document.getElementById('cups_per_meal_dog3').required = false;
+            break;
+            document.getElementById('2_meals_per_day_dog4').required = false;
+            document.getElementById('cups_per_meal_dog4').required = false;
             break;
         case "2":
             document.getElementById('dog_1').style.display = "block";
@@ -104,30 +111,39 @@ function totalDogsValues() {
 
     const meals1 = Number(document.querySelector('input[name="meals_per_day_dog1"]:checked').value);
     const cups1 = Number(document.getElementById("cups_per_meal_dog1").value);
-    let meals2 = Number(document.querySelector('input[name="meals_per_day_dog2"]:checked').value);
-    const cups2 = Number(document.getElementById("cups_per_meal_dog2").value);
-    const meals3 = Number(document.querySelector('input[name="meals_per_day_dog3"]:checked').value);
-    const cups3 = Number(document.getElementById("cups_per_meal_dog3").value);
-    const meals4 = Number(document.querySelector('input[name="meals_per_day_dog4"]:checked').value);
-    const cups4 = Number(document.getElementById("cups_per_meal_dog4").value);
+    let meals2 = 0, cups2 = 0, meals3 = 0, cups3 = 0, meals4 = 0, cups4 = 0;
     
-
+    
     switch (dogsInHousehold) {               
-        case "1":
+        case '1':
             totalCupsPerDay += meals1 * cups1;
             break;        
-        case "2":            
+        case '2': 
+            meals2 = Number(document.querySelector('input[name="meals_per_day_dog2"]:checked').value);
+            cups2 = Number(document.getElementById("cups_per_meal_dog2").value);           
             totalCupsPerDay += (meals1 * cups1) + (meals2 * cups2); 
             break;
-        case "3":
+        case '3':
+            meals2 = Number(document.querySelector('input[name="meals_per_day_dog2"]:checked').value);
+            cups2 = Number(document.getElementById("cups_per_meal_dog2").value); 
+            meals3 = Number(document.querySelector('input[name="meals_per_day_dog3"]:checked').value);
+            cups3 = Number(document.getElementById("cups_per_meal_dog3").value);
             totalCupsPerDay += (meals1 * cups1) + (meals2 * cups2) + (meals3 * cups3); 
             break;
-        case "4":
+        case '4':
+            meals2 = Number(document.querySelector('input[name="meals_per_day_dog2"]:checked').value);
+            cups2 = Number(document.getElementById("cups_per_meal_dog2").value); 
+            meals3 = Number(document.querySelector('input[name="meals_per_day_dog3"]:checked').value);
+            cups3 = Number(document.getElementById("cups_per_meal_dog3").value);
+            meals4 = Number(document.querySelector('input[name="meals_per_day_dog4"]:checked').value);
+            cups4 = Number(document.getElementById("cups_per_meal_dog4").value);
             totalCupsPerDay += (meals1 * cups1) + (meals2 * cups2) + (meals3 * cups3) + (meals4 * cups4); 
             break;
-    }
+    };
 
     return totalCupsPerDay;
+
+    
 }
 
 function generate() {     
@@ -138,15 +154,14 @@ function generate() {
         alert("Please select a dog food from the list");
     } else {    
         // generate variables for calculation based on user input            
-        const userMealsPerDay = Number(document.querySelector('input[name="meals_per_day"]:checked').value);
-        const userCupsPerMeal = Number(document.getElementById('cups_per_meal').value);
+        const totalCupsPerDay = totalDogsValues();
         const toleranceValue = document.querySelector('input[name="tolerance"]:checked').value; 
         const index = Number(dogFoodChosen.slice(9)) - 1; 
         
         // run calculation and display output on screen           
         document.getElementById('output_text').style.visibility = "visible";
         
-        const [days, perPound, perMonth] = calculate(userMealsPerDay, userCupsPerMeal, toleranceValue, index);
+        const [days, perPound, perMonth] = calculate(totalCupsPerDay, toleranceValue, index);
         
         document.getElementById('dog_food_weight').innerHTML = data.dogFoodInfo[index].sizeInPounds;
         document.getElementById('dog_food_chosen').innerHTML = data.dogFoodInfo[index].name;            
@@ -155,6 +170,8 @@ function generate() {
         document.getElementById('price_per_month').innerHTML = perMonth;      
         document.getElementById('buy_now').setAttribute('href', data.dogFoodInfo[index].linkToBuy);
     }
+
+    return false;
 };
 
 function resetForm() {
