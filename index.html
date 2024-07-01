@@ -10,19 +10,19 @@
 </head>
 <body onload="populate()" class="container">
     <main class="row justify-content-center">
-        <div class="col-xs-12 col-lg-6  bg-light bg-opacity-75 d-flex  flex-column vh-100 my-5">
-            <div class="align-self-center w-100 px-1 pt-3">
+        <div class="col-xs-12 col-lg-6  bg-light bg-opacity-75 d-flex  flex-column vh-100 my-3">
+            <div class="align-self-center w-100 px-1 py-3">
                 <h1>Dog Food Calculator</h1>
-                <p>Note: all fields are required</p>
+                <p>Let's find out how long your bag of dog food will last!</p>
             </div>
             <div class="input align-self-center w-100 px-1">
                 <form id="user_input_form" onsubmit="generate();return false;">
-                    <h4>Choose dog food</h4>
+                    <h4>Dog Food Type</h4>
                     <select name="dog_food_list" id="dog_food_list" required class="w-75">
                         <option value="select">Select</option>
                     </select>
                     <br>
-                    <h4 class="mt-3">Meals Per Day</h4>
+                    <h4 class="mt-3">Meals per Day</h4>
                     <input type="radio" name="meals_per_day" id="1_meal_per_day" value="1" required>
                     <label for="1_meal_per_day" class="pe-3">1</label>
                     <input type="radio" name="meals_per_day" id="2_meals_per_day" value="1" required>
@@ -31,9 +31,9 @@
                     <label for="3_meals_per_day" class="pe-3">3</label>
                     <br>
                     <h4 class="mt-3">Cups per Meal</h4>
-                    <input type="number" class="w-75" min="0" step="0.01" required id="cups_per_meal" placeholder="ex: 1.5" >
+                    <input type="number" class="w-75" min="0" step="0.01" required id="cups_per_meal" placeholder="enter as decimal, ex: 1/3 cup = 0.33" >
                     <br>
-                    <h4 class="mt-3">Choose your Calculation</h4>
+                    <h4 class="mt-3">Calculation Tolerance</h4>
                     <input type="radio" name="tolerance" id="average" value="average" required>
                     <label for="average" class="pe-5">Average</label>
                     <input type="radio" name="tolerance" id="conservative" value="conservative" required>
@@ -44,9 +44,9 @@
                 </form>
             </div>
             <div class="output mt-4 align-self-center w-100 px-1" id="output_text" style="visibility: hidden;">
-                <p>One <span id="dog_food_weight"></span> pound bag of <span id="dog_food_chosen"></span> will last your household <span id="days"></span> days.</p>
+                <p>One <span id="dog_food_weight"></span> pound bag of <span id="dog_food_chosen"></span> will last your household <span class="fw-bold" id="days"></span><span class="fw-bold"> days.</span></p>
                 <p>This food costs $<span id="price_per_pound"></span> per pound and $<span id="price_per_month"></span> per month, on average.</p>   
-                <a id="buy_now"><button class="btn btn-outline-success">Buy Now</button></a>    
+                <a id="buy_now"><button class="btn btn-outline-info">Buy Now</button></a>    
             </div>
         </div>
     </main>
