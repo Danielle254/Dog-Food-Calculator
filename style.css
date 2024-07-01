@@ -7,11 +7,18 @@ input::-webkit-inner-spin-button {
 }
 
 body {
-  background-image: url(./Background_Image_Ideas/kibble_3.jpg);
-  background-color: #f3f2f7;
-  background-position: center;
+  background-image: url(./background_image.jpg);
+  background-position: top;  
+  background-size: 1300px auto;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #f3f2f7;
+  
+}
+
+@media screen and (min-width: 1301px) {
+  body {
+    background-size: 1500px auto;
+  }
 }
 
 
