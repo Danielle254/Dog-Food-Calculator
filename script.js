@@ -20,28 +20,38 @@ function populate() {
         };
 };
 
+function displayInputs() {
+    let checked = document.querySelector('input[name="dogs_in_household"]:checked').value;
+    
+             
+    switch (checked) {
+        case "1":
+            document.getElementById('dog_1').style.display = "block";
+            document.getElementById('dog_2').style.display = "none";
+            document.getElementById('dog_3').style.display = "none";
+            document.getElementById('dog_4').style.display = "none";
+            break;
+        case "2":
+            document.getElementById('dog_1').style.display = "block";
+            document.getElementById('dog_2').style.display = "block";
+            document.getElementById('dog_3').style.display = "none";
+            document.getElementById('dog_4').style.display = "none";
+            break;
+        case "3":
+            document.getElementById('dog_1').style.display = "block";
+            document.getElementById('dog_2').style.display = "block";
+            document.getElementById('dog_3').style.display = "block";
+            document.getElementById('dog_4').style.display = "none";
+            break;
+        case "4":
+            document.getElementById('dog_1').style.display = "block";
+            document.getElementById('dog_2').style.display = "block";
+            document.getElementById('dog_3').style.display = "block";
+            document.getElementById('dog_4').style.display = "block";
+            break;
+    };        
+};
 
-function oneDog() {
-    document.getElementById('dog_1').style.display = "block";
-}
-
-function twoDogs() {
-    document.getElementById('dog_1').style.display = "block";
-    document.getElementById('dog_2').style.display = "block";
-}
-
-function threeDogs() {
-    document.getElementById('dog_1').style.display = "block";
-    document.getElementById('dog_2').style.display = "block";
-    document.getElementById('dog_3').style.display = "block";
-}
-
-function fourDogs() {
-    document.getElementById('dog_1').style.display = "block";
-    document.getElementById('dog_2').style.display = "block";
-    document.getElementById('dog_3').style.display = "block";
-    document.getElementById('dog_4').style.display = "block";
-}
 
 function calculate(mealsPerDay, cupsPerMeal, tolerance, index) {
     // calculate daysPerBag
