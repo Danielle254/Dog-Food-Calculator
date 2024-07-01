@@ -1,14 +1,40 @@
-let data;
+/* let data;
 async function fetchData() {
     const response = await fetch('./data.json');
     data = await response.json();       
 };
 
-fetchData();
+fetchData(); */
+
+const data = {
+    "dogFoodInfo" : [
+        {
+            "name": "Only Natural Pet Raw Blends Digestive Formula",
+            "sizeInPounds": 18,
+            "pricePerBag": 68,
+            "linkToBuy":  "https://www.petsmart.com/dog/food/dry-food/only-natural-pet-rawblends-adult-dog-food---kibble-with-raw-bites-digestive-formula-5349277.html"     
+        },
+        {
+            "name": "Open Farm Beef Recipe",
+            "sizeInPounds": 22,
+            "pricePerBag": 97,
+            "linkToBuy": "https://checkout.openfarmpet.com/products/dry-dog-food-with-beef"        
+        },
+        {
+            "name": "Merrick Backcountry Raw Infused Great Plains",
+            "sizeInPounds": 20,
+            "pricePerBag": 85,
+            "linkToBuy": "https://www.chewy.com/merrick-backcountry-raw-infused-grain/dp/253714?utm_source=google-product&utm_medium=cpc&utm_campaign=20394650868&utm_content=&gad_source=1&gclid=CjwKCAjw-O6zBhASEiwAOHeGxT1-a1Dldt-0U0tKC_YDDGg0kDYP2_ZxujQtd3KzvvJNZdIcjAdQcBoCmQcQAvD_BwE" 
+        }
+    ],
+    "averageOuncesPerCup" : 3.5,
+    "conservativeOuncesPerCup" : 4,
+    "ouncesPerPound" : 16
+};
 
 
 function populate() {     
-
+    
     let dropdown = document.getElementById("dog_food_list");
 
     for (let i = 0;  i < data.dogFoodInfo.length; i++)
