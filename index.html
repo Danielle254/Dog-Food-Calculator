@@ -10,30 +10,81 @@
 </head>
 <body onload="populate()" class="container">
     <main class="row justify-content-center">
-        <div class="col-xs-12 col-lg-6  bg-light bg-opacity-75 d-flex  flex-column vh-100 my-3">
+        <div class="col-xs-12 col-lg-6  bg-light bg-opacity-75 d-flex  flex-column my-3">
             <div class="align-self-center w-100 px-1 py-3">
                 <h1>Dog Food Calculator</h1>
                 <p>Let's find out how long your bag of dog food will last!</p>
             </div>
             <div class="input align-self-center w-100 px-1">
                 <form id="user_input_form" onsubmit="generate();return false;">
-                    <h4>Dog Food Type</h4>
+                    <h2 class="fs-4">Dog Food Type</h2>
                     <select name="dog_food_list" id="dog_food_list" required class="w-75">
                         <option value="select">Select</option>
                     </select>
                     <br>
-                    <h4 class="mt-3">Meals per Day</h4>
-                    <input type="radio" name="meals_per_day" id="1_meal_per_day" value="1" required>
-                    <label for="1_meal_per_day" class="pe-3">1</label>
-                    <input type="radio" name="meals_per_day" id="2_meals_per_day" value="1" required>
-                    <label for="2_meals_per_day" class="pe-3">2</label>
-                    <input type="radio" name="meals_per_day" id="3_meals_per_day" value="1" required>
-                    <label for="3_meals_per_day" class="pe-3">3</label>
+                    <h2 class="mt-3 fs-4">Number of Dogs in Household</h2>
+                    <input type="radio" name="dogs_in_household" id="1_dogs_in_household" value="1" required onclick="displayInputs()">
+                    <label for="1_dogs_in_household" class="pe-3">1</label>
+                    <input type="radio" name="dogs_in_household" id="2_dogs_in_household" value="2" required onclick="displayInputs()">
+                    <label for="2_dogs_in_household" class="pe-3">2</label>
+                    <input type="radio" name="dogs_in_household" id="3_dogs_in_household" value="3" required onclick="displayInputs()">
+                    <label for="3_dogs_in_household" class="pe-3">3</label>
+                    <input type="radio" name="dogs_in_household" id="4_dogs_in_household" value="4" required onclick="displayInputs()">
+                    <label for="4_dogs_in_household" class="pe-3">4</label>
                     <br>
-                    <h4 class="mt-3">Cups per Meal</h4>
-                    <input type="number" class="w-75" min="0" step="0.01" required id="cups_per_meal" placeholder="enter as decimal, ex: 1/3 cup = 0.33" >
-                    <br>
-                    <h4 class="mt-3">Calculation Tolerance</h4>
+                    <div style="display: none;" id="dog_1">
+                        <h3 class="mt-3 fs-5">Meals per Day - Dog 1</h3>
+                        <input type="radio" name="meals_per_day_dog1" id="1_meal_per_day_dog1" value="1" required>
+                        <label for="1_meal_per_day_dog1" class="pe-3">1</label>
+                        <input type="radio" name="meals_per_day_dog1" id="2_meals_per_day_dog1" value="2" required>
+                        <label for="2_meals_per_day_dog1" class="pe-3">2</label>
+                        <input type="radio" name="meals_per_day_dog1" id="3_meals_per_day_dog1" value="3" required>
+                        <label for="3_meals_per_day_dog1" class="pe-3">3</label>
+                        <br>
+                        <h3 class="mt-3 fs-5">Cups per Meal - Dog 1</h3>
+                        <input type="number" class="w-75" min="0" step="0.01" required id="cups_per_meal_dog1" placeholder="enter as decimal, ex: 1/3 cup = 0.33" >
+                        <br>
+                    </div>
+                    <div style="display: none;" id="dog_2">
+                        <h3 class="mt-3 fs-5">Meals per Day - Dog 2</h3>
+                        <input type="radio" name="meals_per_day_dog2" id="1_meal_per_day_dog1" value="1">
+                        <label for="1_meal_per_day_dog2" class="pe-3">1</label>
+                        <input type="radio" name="meals_per_day_dog2" id="2_meals_per_day_dog2" value="2">
+                        <label for="2_meals_per_day_dog2" class="pe-3">2</label>
+                        <input type="radio" name="meals_per_day_dog2" id="3_meals_per_day_dog2" value="3">
+                        <label for="3_meals_per_day_dog2" class="pe-3">3</label>
+                        <br>
+                        <h3 class="mt-3 fs-5">Cups per Meal - Dog 2</h3>
+                        <input type="number" class="w-75" min="0" step="0.01" id="cups_per_meal_dog2" placeholder="enter as decimal, ex: 1/3 cup = 0.33" >
+                        <br>
+                    </div>
+                    <div style="display: none;" id="dog_3">
+                        <h3 class="mt-3 fs-5">Meals per Day - Dog 3</h3>
+                        <input type="radio" name="meals_per_day_dog3" id="1_meal_per_day_dog3" value="1">
+                        <label for="1_meal_per_day_dog3" class="pe-3">1</label>
+                        <input type="radio" name="meals_per_day_dog3" id="2_meals_per_day_dog3" value="2">
+                        <label for="2_meals_per_day_dog3" class="pe-3">2</label>
+                        <input type="radio" name="meals_per_day_dog3" id="3_meals_per_day_dog3" value="3">
+                        <label for="3_meals_per_day_dog3" class="pe-3">3</label>
+                        <br>
+                        <h3 class="mt-3 fs-5">Cups per Meal - Dog 3</h3>
+                        <input type="number" class="w-75" min="0" step="0.01" id="cups_per_meal_dog3" placeholder="enter as decimal, ex: 1/3 cup = 0.33" >
+                        <br>
+                    </div>
+                    <div style="display: none;" id="dog_4">
+                        <h3 class="mt-3 fs-5">Meals per Day - Dog 4</h3>
+                        <input type="radio" name="meals_per_day_dog4" id="1_meal_per_day_dog4" value="1">
+                        <label for="1_meal_per_day_dog4" class="pe-3">1</label>
+                        <input type="radio" name="meals_per_day_dog4" id="2_meals_per_day_dog4" value="2">
+                        <label for="2_meals_per_day_dog4" class="pe-3">2</label>
+                        <input type="radio" name="meals_per_day_dog4" id="3_meals_per_day_dog4" value="3">
+                        <label for="3_meals_per_day_dog4" class="pe-3">3</label>
+                        <br>
+                        <h3 class="mt-3 fs-5">Cups per Meal - Dog 4</h3>
+                        <input type="number" class="w-75" min="0" step="0.01" id="cups_per_meal_dog4" placeholder="enter as decimal, ex: 1/3 cup = 0.33" >
+                        <br>
+                    </div>
+                    <h2 class="mt-3 fs-4">Calculation Tolerance</h2>
                     <input type="radio" name="tolerance" id="average" value="average" required>
                     <label for="average" class="pe-5">Average</label>
                     <input type="radio" name="tolerance" id="conservative" value="conservative" required>
@@ -43,7 +94,7 @@
                     <button type="button" onclick="resetForm()" id="reset_button" class="btn btn-outline-secondary">Reset</button>
                 </form>
             </div>
-            <div class="output mt-4 align-self-center w-100 px-1" id="output_text" style="visibility: hidden;">
+            <div class="output my-4 align-self-center w-100 px-1" id="output_text" style="visibility: hidden;">
                 <p>One <span id="dog_food_weight"></span> pound bag of <span id="dog_food_chosen"></span> will last your household <span class="fw-bold" id="days"></span><span class="fw-bold"> days.</span></p>
                 <p>This food costs $<span id="price_per_pound"></span> per pound and $<span id="price_per_month"></span> per month, on average.</p>   
                 <a id="buy_now"><button class="btn btn-outline-info">Buy Now</button></a>    
