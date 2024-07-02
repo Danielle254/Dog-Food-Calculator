@@ -1,7 +1,7 @@
 {
     "dogFoodInfo" : [
         {
-            "name": "Only Natural Pet Raw Blends Digestive Formula",
+            "name": "Only Natural Pet Digestive Formula",
             "sizeInPounds": 18,
             "pricePerBag": 68,
             "linkToBuy":  "https://www.petsmart.com/dog/food/dry-food/only-natural-pet-rawblends-adult-dog-food---kibble-with-raw-bites-digestive-formula-5349277.html"     
@@ -17,6 +17,18 @@
             "sizeInPounds": 20,
             "pricePerBag": 85,
             "linkToBuy": "https://www.chewy.com/merrick-backcountry-raw-infused-grain/dp/253714?utm_source=google-product&utm_medium=cpc&utm_campaign=20394650868&utm_content=&gad_source=1&gclid=CjwKCAjw-O6zBhASEiwAOHeGxT1-a1Dldt-0U0tKC_YDDGg0kDYP2_ZxujQtd3KzvvJNZdIcjAdQcBoCmQcQAvD_BwE" 
+        },
+        {
+          "name": "Acana Red Meat Recipe",
+            "sizeInPounds": 25,
+            "pricePerBag": 81,
+            "linkToBuy": "https://www.chewy.com/acana-red-meat-recipe-grain-free-dry/dp/121070"   
+        },
+        {
+            "name": "Stella & Chewy's Raw Coated Whitefish",
+            "sizeInPounds": 22,
+            "pricePerBag": 83,
+            "linkToBuy": "https://www.onlynaturalpet.com/products/stella-chewy-raw-coated-dry-dog-food?variant=32135493713956"  
         }
     ]
 }
