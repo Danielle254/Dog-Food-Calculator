@@ -86,6 +86,11 @@ function displayInputs() {
     };        
 };
 
+const dogsInHouseholdElements = document.getElementsByName('dogs_in_household');
+for (let i = 0; i < dogsInHouseholdElements.length ; i ++) {
+    dogsInHouseholdElements[i].addEventListener("click", displayInputs);
+};
+
 
 function calculate(cupsPerDay, tolerance, bagSize, bagPrice) {
         
