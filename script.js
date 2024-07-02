@@ -1,24 +1,25 @@
-let data;
-async function fetchData() {
-    const response = await fetch('./data.json');
-    data = await response.json();       
+window.onload = function () {
+    async function populate() {
+        const response = await fetch('./data.json');
+        const results = await response.json();    
+        return results;          
+    };
+
+    populate().then((results) => {
+        const data = results;
+        const dropdown = document.getElementById("dog_food_list");
+
+        for (let i = 0;  i < data.dogFoodInfo.length; i++)
+            {
+                let item = document.createElement('option');
+                item.textContent = data.dogFoodInfo[i].name + " - " + data.dogFoodInfo[i].sizeInPounds + "lb"; 
+                item.value = `dog_food_${i + 1}`;
+                dropdown.appendChild(item);        
+            };
+        });
 };
 
-fetchData();
 
-
-function populate() {     
-    
-    let dropdown = document.getElementById("dog_food_list");
-
-    for (let i = 0;  i < data.dogFoodInfo.length; i++)
-        {
-            let item = document.createElement('option');
-            item.textContent = data.dogFoodInfo[i].name + " - " + data.dogFoodInfo[i].sizeInPounds + "lb"; 
-            item.value = `dog_food_${i + 1}`;
-            dropdown.appendChild(item);        
-        };
-};
 
 function displayInputs() {
     let checked = document.querySelector('input[name="dogs_in_household"]:checked').value;    
@@ -85,6 +86,8 @@ function displayInputs() {
 
 
 function calculate(cupsPerDay, tolerance, index) {
+    let data = fetchData();
+    
     // calculate daysPerBag
     let ouncesPerCup = 0;
     if (tolerance === "average") {
@@ -93,6 +96,7 @@ function calculate(cupsPerDay, tolerance, index) {
         ouncesPerCup = 4;
     };
     const bagSize = data.dogFoodInfo[index].sizeInPounds;
+    const buyNowLink = data.dogFoodInfo[index].linkToBuy;
     const cupsPerBag = bagSize * 16 / ouncesPerCup;
     const daysPerBag = cupsPerBag / cupsPerDay;
     
@@ -101,7 +105,7 @@ function calculate(cupsPerDay, tolerance, index) {
     const pricePerPound = bagPrice / bagSize;
     const pricePerMonth = bagPrice / daysPerBag * 30.4;
 
-    return [daysPerBag.toFixed(0), pricePerPound.toFixed(2), pricePerMonth.toFixed(2)];
+    return [daysPerBag.toFixed(0), pricePerPound.toFixed(2), pricePerMonth.toFixed(2), buyNowLink];
 };
 
 
@@ -146,7 +150,7 @@ function totalDogsValues() {
     
 }
 
-function generate() {     
+function createOutput() {     
     
     // check dropdown form field validation. all other form fields validated with built in HTML
     const dogFoodChosen = document.querySelector('#dog_food_list').value; 
@@ -161,14 +165,14 @@ function generate() {
         // run calculation and display output on screen           
         document.getElementById('output_text').style.visibility = "visible";
         
-        const [days, perPound, perMonth] = calculate(totalCupsPerDay, toleranceValue, index);
+        const [days, perPound, perMonth, buyNow] = calculate(totalCupsPerDay, toleranceValue, index);
         
         document.getElementById('dog_food_weight').innerHTML = data.dogFoodInfo[index].sizeInPounds;
         document.getElementById('dog_food_chosen').innerHTML = data.dogFoodInfo[index].name;            
         document.getElementById('days').innerHTML = days;
         document.getElementById('price_per_pound').innerHTML = perPound;
         document.getElementById('price_per_month').innerHTML = perMonth;      
-        document.getElementById('buy_now').setAttribute('href', data.dogFoodInfo[index].linkToBuy);
+        document.getElementById('buy_now').setAttribute('href', buyNow);
     }
 
     return false;
