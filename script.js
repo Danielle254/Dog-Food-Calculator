@@ -1,4 +1,7 @@
 import { displayInputs } from './modules/displayInputs.mjs';
+import { resetForm } from './modules/resetForm.mjs';
+import { totalDogsValues } from './modules/totalDogsValues.mjs';
+import { calculate } from './modules/calculate.mjs';
 
 async function fetchData() {
     const response = await fetch('./data.json');
@@ -23,78 +26,10 @@ window.onload = function () {
 };
 
 
-
-
 const dogsInHouseholdElements = document.getElementsByName('dogs_in_household');
 for (let i = 0; i < dogsInHouseholdElements.length ; i ++) {
     dogsInHouseholdElements[i].addEventListener("click", displayInputs);
 };
-
-
-function calculate(cupsPerDay, tolerance, bagSize, bagPrice) {
-        
-    // calculate daysPerBag
-    let ouncesPerCup = 0;
-    if (tolerance === "average") {
-        ouncesPerCup = 3.5;
-    } else if (tolerance === "conservative") {
-        ouncesPerCup = 4;
-    };
-    
-    // calculate daysPerBag
-    const cupsPerBag = bagSize * 16 / ouncesPerCup;
-    const daysPerBag = cupsPerBag / cupsPerDay;
-    
-    // calculate pricePerPound and pricePerMonth
-    const pricePerPound = bagPrice / bagSize;
-    const pricePerMonth = bagPrice / daysPerBag * 30.4;
-
-    return [daysPerBag.toFixed(0), pricePerPound.toFixed(2), pricePerMonth.toFixed(2)];
-    
-};
-
-
-function totalDogsValues() {
-    const dogsInHousehold = document.querySelector('input[name="dogs_in_household"]:checked').value;
-    let totalCupsPerDay = 0;
-
-    const meals1 = Number(document.querySelector('input[name="meals_per_day_dog1"]:checked').value);
-    const cups1 = Number(document.getElementById("cups_per_meal_dog1").value);
-    let meals2 = 0, cups2 = 0, meals3 = 0, cups3 = 0, meals4 = 0, cups4 = 0;
-    
-    
-    switch (dogsInHousehold) {               
-        case '1':
-            totalCupsPerDay += meals1 * cups1;
-            break;        
-        case '2': 
-            meals2 = Number(document.querySelector('input[name="meals_per_day_dog2"]:checked').value);
-            cups2 = Number(document.getElementById("cups_per_meal_dog2").value);           
-            totalCupsPerDay += (meals1 * cups1) + (meals2 * cups2); 
-            break;
-        case '3':
-            meals2 = Number(document.querySelector('input[name="meals_per_day_dog2"]:checked').value);
-            cups2 = Number(document.getElementById("cups_per_meal_dog2").value); 
-            meals3 = Number(document.querySelector('input[name="meals_per_day_dog3"]:checked').value);
-            cups3 = Number(document.getElementById("cups_per_meal_dog3").value);
-            totalCupsPerDay += (meals1 * cups1) + (meals2 * cups2) + (meals3 * cups3); 
-            break;
-        case '4':
-            meals2 = Number(document.querySelector('input[name="meals_per_day_dog2"]:checked').value);
-            cups2 = Number(document.getElementById("cups_per_meal_dog2").value); 
-            meals3 = Number(document.querySelector('input[name="meals_per_day_dog3"]:checked').value);
-            cups3 = Number(document.getElementById("cups_per_meal_dog3").value);
-            meals4 = Number(document.querySelector('input[name="meals_per_day_dog4"]:checked').value);
-            cups4 = Number(document.getElementById("cups_per_meal_dog4").value);
-            totalCupsPerDay += (meals1 * cups1) + (meals2 * cups2) + (meals3 * cups3) + (meals4 * cups4); 
-            break;
-    };
-
-    return totalCupsPerDay;
-
-    
-}
-
 
 function createOutput(event) {     
     
@@ -139,14 +74,6 @@ function createOutput(event) {
 const form = document.getElementById('user_input_form');
 form.addEventListener("submit", createOutput);
 
-function resetForm() {
-    document.getElementById('user_input_form').reset();
-    document.getElementById('output_text').style.visibility = "hidden";
-    document.getElementById('dog_1').style.display = "none";
-    document.getElementById('dog_2').style.display = "none";
-    document.getElementById('dog_3').style.display = "none";
-    document.getElementById('dog_4').style.display = "none";
-};
 
 const resetButton = document.getElementById('reset_button');
 resetButton.addEventListener("click", resetForm);
