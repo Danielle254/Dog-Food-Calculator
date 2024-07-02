@@ -89,6 +89,34 @@ form.addEventListener("submit", createOutput);
 const resetButton = document.getElementById('reset_button');
 resetButton.addEventListener("click", resetForm);
 
+// populate food to compare dropdown list
+function populateCompare() {
+    const originalDropdown = document.getElementById('dog_food_list');
+    const excludeFood = document.querySelector('#dog_food_list').value;
+    const indexToCut = Number(excludeFood.slice(9)); 
+    const compareDropdown = document.getElementById('compare_food');
+
+    const newArray = [];
+    for (let i = 0; i < originalDropdown.length; i++) {
+        newArray.push(originalDropdown.options[i].text);
+    }
+    
+    newArray.splice(indexToCut, 1);
+    
+
+    // populate compare dropdown menu
+    for (let i = 0;  i < newArray.length; i++)
+        {
+            let item = document.createElement('option');
+            item.textContent = newArray[i]; 
+            item.value = `dog_food_${i + 1}`;
+            compareDropdown.appendChild(item);        
+        };    
+};
+
+const compareButton = document.getElementById('compare_button');
+compareButton.addEventListener("click", populateCompare);
+
 
 
 

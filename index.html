@@ -10,7 +10,7 @@
 <body class="container">
     <main class="row justify-content-center">
         <div class="col-xs-12 col-lg-6  bg-light bg-opacity-75 d-flex  flex-column my-3">
-            <div class="align-self-center w-100 px-1 mt-3 mb-5">
+            <div class="align-self-center w-100 px-1 mt-3 mb-4">
                 <h1>Dog Food Calculator</h1>
                 <p>Let's find out how long your bag of dog food will last!</p>
             </div>
@@ -97,13 +97,12 @@
                 <p>One <span id="dog_food_weight"></span> pound bag of <span id="dog_food_chosen"></span> will last your household <span class="fw-bold" id="days"></span><span class="fw-bold"> days.</span></p>
                 <p>This food costs $<span id="price_per_pound"></span> per pound and $<span id="price_per_month"></span> per month, on average.</p>   
                 <a id="buy_now"><button class="btn btn-primary">Buy Now</button></a> 
-                <button class="btn btn-info">Compare</button>
+                <button class="btn btn-info" id="compare_button">Compare</button>
                 <br>
             </div>
             <div class="compare align-self-center w-100 px-1" id="compare_text" style="visibility: visible;">
                 <h3 class="fs-5" >Food to Compare</h3>
-                <select name="compare_food" id="compare_food" required class="w-75">
-                    <option value="select">Select</option>
+                <select name="compare_food" id="compare_food" required class="w-75">        
                 </select> 
                 <div class="second_output my-3">
                     <p id="compare_result" class="fw-bold"></p>
