@@ -15,7 +15,7 @@
                 <p>Let's find out how long your bag of dog food will last!</p>
             </div>
             <div class="input align-self-center w-100 px-1">
-                <form id="user_input_form" onsubmit="createOutput();return false;">
+                <form id="user_input_form">
                     <h2 class="fs-4">Dog Food Type</h2>
                     <select name="dog_food_list" id="dog_food_list" required class="w-75">
                         <option value="select">Select</option>
@@ -93,7 +93,7 @@
                     <button type="button" onclick="resetForm()" id="reset_button" class="btn btn-outline-secondary">Reset</button>
                 </form>
             </div>
-            <div class="output my-4 align-self-center w-100 px-1" id="output_text" style="visibility: hidden;">
+            <div class="output my-4 align-self-center w-100 px-1" id="output_text" style="visibility: visible;">
                 <p>One <span id="dog_food_weight"></span> pound bag of <span id="dog_food_chosen"></span> will last your household <span class="fw-bold" id="days"></span><span class="fw-bold"> days.</span></p>
                 <p>This food costs $<span id="price_per_pound"></span> per pound and $<span id="price_per_month"></span> per month, on average.</p>   
                 <a id="buy_now"><button class="btn btn-outline-info">Buy Now</button></a>    
