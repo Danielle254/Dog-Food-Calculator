@@ -3,12 +3,16 @@ import { resetForm } from './modules/resetForm.mjs';
 import { totalDogsValues } from './modules/totalDogsValues.mjs';
 import { calculate } from './modules/calculate.mjs';
 
+
+// fetches data from JSON file
 async function fetchData() {
     const response = await fetch('./data.json');
     const results = await response.json();    
     return results;          
 };
 
+
+// populates dropdown menu of dog food types upon screen load
 window.onload = function () {    
 
     fetchData().then((results) => {
@@ -25,12 +29,16 @@ window.onload = function () {
         });
 };
 
-
+// controls display/hide and required/not attributes of 
+// meals per day and cups per meals inputs 
+// based on number of dogs per household selection
 const dogsInHouseholdElements = document.getElementsByName('dogs_in_household');
 for (let i = 0; i < dogsInHouseholdElements.length ; i ++) {
     dogsInHouseholdElements[i].addEventListener("click", displayInputs);
 };
 
+
+// runs upon submitting the form
 function createOutput(event) {     
     
     // check dropdown form field validation. all other form fields validated with built in HTML
@@ -71,10 +79,13 @@ function createOutput(event) {
     event.preventDefault();
 };
 
+
+// retrieve user input data, run calculation, 
+// and display output message on screen
 const form = document.getElementById('user_input_form');
 form.addEventListener("submit", createOutput);
 
-
+// clicking reset button resets the entire form
 const resetButton = document.getElementById('reset_button');
 resetButton.addEventListener("click", resetForm);
 
