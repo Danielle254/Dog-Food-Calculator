@@ -99,10 +99,8 @@ function populateCompare() {
     const newArray = [];
     for (let i = 0; i < originalDropdown.length; i++) {
         newArray.push(originalDropdown.options[i].text);
-    }
-    
-    newArray.splice(indexToCut, 1);
-    
+    }    
+    newArray.splice(indexToCut, 1);    
 
     // populate compare dropdown menu
     for (let i = 0;  i < newArray.length; i++)
@@ -111,7 +109,9 @@ function populateCompare() {
             item.textContent = newArray[i]; 
             item.value = `dog_food_${i + 1}`;
             compareDropdown.appendChild(item);        
-        };    
+        }; 
+        
+    document.getElementById('compare_text').style.display = "block";
 };
 
 const compareButton = document.getElementById('compare_button');
