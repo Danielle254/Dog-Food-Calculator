@@ -166,9 +166,13 @@ function createOutput() {
         document.getElementById('output_text').style.visibility = "visible";
         
         const [days, perPound, perMonth, buyNow] = calculate(totalCupsPerDay, toleranceValue, index);
+        const dogFoodChosenString = document.querySelector('#dog_food_list').innerHTML;
+        separateIndex = dogFoodChosenString.indexOf("-");
+        const dogFoodName = dogFoodChosenString.slice(0, separateIndex - 1);
+        const dogFoodWeight = dogFoodChosenString.slice(separateIndex +1);
         
-        document.getElementById('dog_food_weight').innerHTML = data.dogFoodInfo[index].sizeInPounds;
-        document.getElementById('dog_food_chosen').innerHTML = data.dogFoodInfo[index].name;            
+        document.getElementById('dog_food_weight').innerHTML = dogFoodWeight;
+        document.getElementById('dog_food_chosen').innerHTML = dogFoodName;            
         document.getElementById('days').innerHTML = days;
         document.getElementById('price_per_pound').innerHTML = perPound;
         document.getElementById('price_per_month').innerHTML = perMonth;      
