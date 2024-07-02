@@ -86,26 +86,33 @@ function displayInputs() {
 
 
 function calculate(cupsPerDay, tolerance, index) {
-    let data = fetchData();
-    
-    // calculate daysPerBag
-    let ouncesPerCup = 0;
-    if (tolerance === "average") {
-        ouncesPerCup = 3.5;
-    } else if (tolerance === "conservative") {
-        ouncesPerCup = 4;
+    async function fetchData() {
+        const response = await fetch('./data.json');
+        const results = await response.json();    
+        return results;          
     };
-    const bagSize = data.dogFoodInfo[index].sizeInPounds;
-    const buyNowLink = data.dogFoodInfo[index].linkToBuy;
-    const cupsPerBag = bagSize * 16 / ouncesPerCup;
-    const daysPerBag = cupsPerBag / cupsPerDay;
-    
-    // calculate pricePerPound and pricePerMonth
-    const bagPrice = data.dogFoodInfo[index].pricePerBag;
-    const pricePerPound = bagPrice / bagSize;
-    const pricePerMonth = bagPrice / daysPerBag * 30.4;
 
-    return [daysPerBag.toFixed(0), pricePerPound.toFixed(2), pricePerMonth.toFixed(2), buyNowLink];
+    fetchData().then((results) => {
+        const data = results;
+        // calculate daysPerBag
+        let ouncesPerCup = 0;
+        if (tolerance === "average") {
+            ouncesPerCup = 3.5;
+        } else if (tolerance === "conservative") {
+            ouncesPerCup = 4;
+        };
+        const bagSize = data.dogFoodInfo[index].sizeInPounds;
+        const buyNowLink = data.dogFoodInfo[index].linkToBuy;
+        const cupsPerBag = bagSize * 16 / ouncesPerCup;
+        const daysPerBag = cupsPerBag / cupsPerDay;
+        
+        // calculate pricePerPound and pricePerMonth
+        const bagPrice = data.dogFoodInfo[index].pricePerBag;
+        const pricePerPound = bagPrice / bagSize;
+        const pricePerMonth = bagPrice / daysPerBag * 30.4;
+
+        return [daysPerBag.toFixed(0), pricePerPound.toFixed(2), pricePerMonth.toFixed(2), buyNowLink];
+    });
 };
 
 
@@ -185,6 +192,10 @@ function createOutput() {
 function resetForm() {
     document.getElementById('user_input_form').reset();
     document.getElementById('output_text').style.visibility = "hidden";
+    document.getElementById('dog_1').style.display = "none";
+    document.getElementById('dog_2').style.display = "none";
+    document.getElementById('dog_3').style.display = "none";
+    document.getElementById('dog_4').style.display = "none";
 };
 
 
