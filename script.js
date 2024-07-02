@@ -204,6 +204,9 @@ function resetForm() {
     document.getElementById('dog_4').style.display = "none";
 };
 
+const resetButton = document.getElementById('reset_button');
+resetButton.addEventListener("click", resetForm);
+
 
 
 
