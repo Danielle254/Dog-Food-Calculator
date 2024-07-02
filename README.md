@@ -13,7 +13,7 @@ Visit [https://danielle254.github.io/Dog-Food-Calculator/](https://danielle254.g
 ### Key Features
 
 * Simple, easy to use input form
-* Results message does not display until form submits
+* Results message displays after form submits
 * Ability to reset the form at any time
 * Ability to compare 2 different foods and their prices
 * Easy ordering via "Buy Now" button
@@ -23,9 +23,10 @@ Visit [https://danielle254.github.io/Dog-Food-Calculator/](https://danielle254.g
 ### Skills Showcased
 
 * HTML forms and form validation
-* Bootstrap CSS
+* Bootstrap for styling
 * Vanilla JavaScript with event listeners
 * Data stored in JSON file and pulled with API call
+* Organizing JS functions with modules
 
 
 ### Future Enhancement Ideas
