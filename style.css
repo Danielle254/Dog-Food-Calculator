@@ -15,6 +15,27 @@ body {
   
 }
 
+select:hover {
+  cursor: pointer;
+}
+
+input:hover {
+  cursor: pointer;
+}
+
+label:hover {
+  cursor: pointer;
+}
+
+.smooth_hover:hover {
+  cursor: pointer;  
+}
+
+input[type=number] {
+  cursor: auto;
+}
+
+
 @media screen and (min-width: 1301px) {
   body {
     background-size: 1500px auto;
