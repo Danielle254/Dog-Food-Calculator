@@ -10,7 +10,7 @@
 <body class="container">
     <main class="row justify-content-center">
         <div class="col-xs-12 col-lg-6  bg-light bg-opacity-75 d-flex  flex-column my-3">
-            <div class="align-self-center w-100 px-1 py-3">
+            <div class="align-self-center w-100 px-1 mt-3 mb-4">
                 <h1>Dog Food Calculator</h1>
                 <p>Let's find out how long your bag of dog food will last!</p>
             </div>
@@ -93,11 +93,25 @@
                     <button type="button" id="reset_button" class="btn btn-outline-dark">Reset</button>
                 </form>
             </div>
-            <div class="output my-4 align-self-center w-100 px-1" id="output_text" style="visibility: visible;">
+            <div class="output my-4 align-self-center w-100 px-1" id="output_text" style="visibility: hidden;">
                 <p>One <span id="dog_food_weight"></span> pound bag of <span id="dog_food_chosen"></span> will last your household <span class="fw-bold" id="days"></span><span class="fw-bold"> days.</span></p>
                 <p>This food costs $<span id="price_per_pound"></span> per pound and $<span id="price_per_month"></span> per month, on average.</p>   
-                <a id="buy_now"><button class="btn btn-primary">Buy Now</button></a>                    
+                <a id="buy_now"><button class="btn btn-primary fst-italic">Buy Now</button></a> 
+                <button class="btn btn-info " id="compare_button">Compare</button>
+                <br>
             </div>
+            <div class="compare align-self-center w-100 px-1" id="compare_text" style="display: none;">
+                <h3 class="fs-5" >Food to Compare</h3>
+                <select name="compare_food" id="compare_food" required class="w-75">        
+                </select> 
+            </div>
+            <div class="my-3" id="second_output" style="visibility: hidden;">
+                <p id="compare_result" class="fw-bold"></p>
+                <p>One <span id="dog_food_weight2"></span> pound bag of <span id="dog_food_chosen2"></span> will last your household <span class="fw-bold" id="days2"></span><span class="fw-bold"> days.</span></p>
+                <p>This food costs $<span id="price_per_pound2"></span> per pound and $<span id="price_per_month2"></span> per month, on average.</p>   
+                <a id="buy_now2"><button class="btn btn-primary fst-italic">Buy Now</button></a>
+            </div>
+                        
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

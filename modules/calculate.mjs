@@ -16,6 +16,10 @@ export function calculate(cupsPerDay, tolerance, bagSize, bagPrice) {
     const pricePerPound = bagPrice / bagSize;
     const pricePerMonth = bagPrice / daysPerBag * 30.4;
 
-    return [daysPerBag.toFixed(0), pricePerPound.toFixed(2), pricePerMonth.toFixed(2)];
+    return {
+        "daysPerBag": daysPerBag.toFixed(0), 
+        "pricePerPound": pricePerPound.toFixed(2), 
+        "pricePerMonth": pricePerMonth.toFixed(2)
+    }
     
 };
