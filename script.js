@@ -51,7 +51,8 @@ function createOutput(event) {
             const data = results;
             
             // generate variables for calculation based on user input            
-            const totalCupsPerDay = totalDogsValues();
+            const numDogs = document.querySelector('input[name="dogs_in_household"]:checked').value;
+            const totalCupsPerDay = totalDogsValues(numDogs);
             const toleranceValue = document.querySelector('input[name="tolerance"]:checked').value; 
             const index = Number(dogFoodChosen.slice(9)) - 1; 
             const bagSize = data.dogFoodInfo[index].sizeInPounds;

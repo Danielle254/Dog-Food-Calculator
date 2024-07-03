@@ -1,36 +1,43 @@
-export function totalDogsValues() {
-    const dogsInHousehold = document.querySelector('input[name="dogs_in_household"]:checked').value;
+import { retrieveMeals } from "./retrieveMeals.mjs";
+import { retrieveCups } from "./retrieveCups.mjs";
+
+export function totalDogsValues(numDogs) {
+    
     let totalCupsPerDay = 0;
 
-    const meals1 = Number(document.querySelector('input[name="meals_per_day_dog1"]:checked').value);
-    const cups1 = Number(document.getElementById("cups_per_meal_dog1").value);
+    const meals1 = retrieveMeals(1);
+    const cups1 = retrieveCups(1);
     let meals2 = 0, cups2 = 0, meals3 = 0, cups3 = 0, meals4 = 0, cups4 = 0;
+
+    function totalPerDog(meals, cups) {
+        return meals * cups;
+    }
     
     
-    switch (dogsInHousehold) {               
+    switch (numDogs) {               
         case '1':
-            totalCupsPerDay += meals1 * cups1;
+            totalCupsPerDay += totalPerDog(meals1, cups1);
             break;        
         case '2': 
-            meals2 = Number(document.querySelector('input[name="meals_per_day_dog2"]:checked').value);
-            cups2 = Number(document.getElementById("cups_per_meal_dog2").value);           
-            totalCupsPerDay += (meals1 * cups1) + (meals2 * cups2); 
+            meals2 = retrieveMeals(2);
+            cups2 = retrieveCups(2);          
+            totalCupsPerDay += totalPerDog(meals1, cups1) + totalPerDog(meals2, cups2); 
             break;
         case '3':
-            meals2 = Number(document.querySelector('input[name="meals_per_day_dog2"]:checked').value);
-            cups2 = Number(document.getElementById("cups_per_meal_dog2").value); 
-            meals3 = Number(document.querySelector('input[name="meals_per_day_dog3"]:checked').value);
-            cups3 = Number(document.getElementById("cups_per_meal_dog3").value);
-            totalCupsPerDay += (meals1 * cups1) + (meals2 * cups2) + (meals3 * cups3); 
+            meals2 = retrieveMeals(2);
+            cups2 = retrieveCups(2);
+            meals3 = retrieveMeals(3);
+            cups3 = retrieveCups(3);
+            totalCupsPerDay += totalPerDog(meals1, cups1) + totalPerDog(meals2, cups2) + totalPerDog(meals3, cups3); 
             break;
         case '4':
-            meals2 = Number(document.querySelector('input[name="meals_per_day_dog2"]:checked').value);
-            cups2 = Number(document.getElementById("cups_per_meal_dog2").value); 
-            meals3 = Number(document.querySelector('input[name="meals_per_day_dog3"]:checked').value);
-            cups3 = Number(document.getElementById("cups_per_meal_dog3").value);
-            meals4 = Number(document.querySelector('input[name="meals_per_day_dog4"]:checked').value);
-            cups4 = Number(document.getElementById("cups_per_meal_dog4").value);
-            totalCupsPerDay += (meals1 * cups1) + (meals2 * cups2) + (meals3 * cups3) + (meals4 * cups4); 
+            meals2 = retrieveMeals(2);
+            cups2 = retrieveCups(2); 
+            meals3 = retrieveMeals(3);
+            cups3 = retrieveCups(3);
+            meals4 = retrieveMeals(4);
+            cups4 = retrieveCups(4);
+            totalCupsPerDay += totalPerDog(meals1, cups1) + totalPerDog(meals2, cups2) + totalPerDog(meals3, cups3) + totalPerDog(meals4, cups4); 
             break;
     };
 
