@@ -62,7 +62,10 @@ function createOutput(event) {
             document.getElementById('output_text').style.visibility = "visible";
             
             // run calculation
-            const [days, perPound, perMonth] = calculate(totalCupsPerDay, toleranceValue, bagSize, bagPrice);
+            const calculateResults = calculate(totalCupsPerDay, toleranceValue, bagSize, bagPrice);
+            const days = calculateResults.daysPerBag;
+            const perPound = calculateResults.pricePerPound;
+            const perMonth = calculateResults.pricePerMonth;
             
             
             // update span elements in output message
@@ -131,18 +134,22 @@ function createCompareOutput() {
         const bagPrice = data.dogFoodInfo[index].pricePerBag;
                 
         // run calculation
-        const [days, perPound, perMonth] = calculate(totalCupsPerDay, toleranceValue, bagSize, bagPrice);
+        const calculateResults = calculate(totalCupsPerDay, toleranceValue, bagSize, bagPrice);
+        const days = calculateResults.daysPerBag;
+        const perPound = calculateResults.pricePerPound;
+        const perMonth = calculateResults.pricePerMonth;
                 
         //display output on screen           
         document.getElementById('second_output').style.visibility = "visible";
 
         // generate and display custom results message 
         const comparePrice =  document.getElementById('price_per_month').innerHTML; 
+        
         if (perMonth < comparePrice) {
             document.getElementById('compare_result').innerHTML = "BETTER";
         } else {
             document.getElementById('compare_result').innerHTML = "WORSE";
-        }
+        };
 
         // update span elements in output message
         document.getElementById('dog_food_weight2').innerHTML = data.dogFoodInfo[index].sizeInPounds;
