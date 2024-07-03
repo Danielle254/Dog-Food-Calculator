@@ -35,6 +35,19 @@ input[type=number] {
   cursor: auto;
 }
 
+input[type=submit]:hover {
+  background-color: darkblue;  
+}
+
+#compare_button:hover {
+  background-color: rgb(50, 141, 167);
+  color: white;
+}
+
+.buy-btn:hover {
+  border: 1px darkblue solid;  
+}
+
 
 @media screen and (min-width: 1301px) {
   body {
