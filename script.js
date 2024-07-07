@@ -144,8 +144,7 @@ function createCompareOutput() {
         document.getElementById('second_output').style.visibility = "visible";
 
         // generate and display custom results message 
-        const comparePrice =  document.getElementById('price_per_month').innerHTML;
-        
+        const comparePrice =  document.getElementById('price_per_month').innerHTML;        
         
         if (Number(perMonth) < Number(comparePrice)) {
             document.getElementById('compare_result').innerHTML = "BETTER";
