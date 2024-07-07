@@ -1,5 +1,4 @@
 # Multi-Feature Dog Food Calculator
-(still in development)
 
 This app calculates how long a given bag of dog food will last, factoring in a multiple dog household, and provides the user with pricing information and a link to purchase the food online. There is also the ability to compare 2 different foods.
 
@@ -24,9 +23,17 @@ Visit [https://danielle254.github.io/Dog-Food-Calculator/](https://danielle254.g
 
 * HTML forms and form validation
 * Bootstrap for styling
-* Vanilla JavaScript with event listeners
+* Vanilla JavaScript with event listeners, reading and writing HTML elements
 * Data stored in JSON file and pulled with API call
 * Organizing JS functions with modules
+
+
+### Lessons Learned
+
+I enjoyed writing multiple functions to perform these calculations and refactoring them into modules for better readability and organization. 
+I also got good experience with how to break down a problem when encountering errors in the code with such complex calculations. 
+I'm glad I went for the personal challenge of learning how to use async functions properly to retrieve JSON data via API instead of simply hosting the dataset in my main JS file. 
+Having a completely original project was really fun, and I got good practice using Git branching and PRs to manage the build of my many features. 
 
 
 ### Future Enhancement Ideas
