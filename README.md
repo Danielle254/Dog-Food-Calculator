@@ -6,6 +6,7 @@ The "days per bag" metric, which tells the user how long the bag of food will la
 
 
 ### How to Access
+
 Visit [https://danielle254.github.io/Dog-Food-Calculator/](https://danielle254.github.io/Dog-Food-Calculator/)
 
 
